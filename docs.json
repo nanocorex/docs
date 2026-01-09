@@ -13,6 +13,9 @@
     "light": "#22C55E",
     "dark": "#15803D"
   },
+  "search": {
+    "enabled": false
+  },
   "navigation": {
     "tabs": [
       {
