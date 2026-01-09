@@ -19,26 +19,33 @@
       "mode": "simple"
     }
   },
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "index",
-        "authentication",
-        "errors"
-      ]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "api-reference/introduction",
-        "api-reference/get-countries",
-        "api-reference/get-calendar",
-        "api-reference/check-date",
-        "api-reference/sync-holidays"
-      ]
-    }
-  ],
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "authentication",
+              "errors"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/get-countries",
+              "api-reference/get-calendar",
+              "api-reference/check-date",
+              "api-reference/sync-holidays"
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "openapi": [
     "/openapi.json"
   ],
