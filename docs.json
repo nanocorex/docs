@@ -9,33 +9,20 @@
   },
   "favicon": "/favicon.svg",
   "openapi": "openapi.json",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Giriş",
-            "pages": [
-              "index",
-              "authentication",
-              "quickstart",
-              "errors"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Endpoints",
-            "openapi": "openapi.json"
-          }
-        ]
-      }
-    ]
-  },
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": [
+        "index",
+        "authentication",
+        "errors"
+      ]
+    },
+    {
+      "group": "Endpoints",
+      "openapi": "openapi.json"
+    }
+  ],
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
