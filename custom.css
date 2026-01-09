@@ -1,28 +1,11 @@
-/* Hide entire Mintlify header/navbar */
-header,
-nav,
-[data-testid="navbar"],
-[class*="Navbar"],
-[class*="Header"],
-[class*="TopBar"],
-.sticky.top-0,
-.fixed.top-0 {
+/* Hide only the top navigation bar - be specific to avoid hiding modals */
+#topbar,
+[data-testid="topbar"],
+.mintlify-topbar {
   display: none !important;
 }
 
-/* Adjust content to fill screen since header is hidden */
-main,
-[class*="Main"],
-.flex-1 {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Hide search bar (backup) */
-[data-testid="search-bar-entry-point"],
-.search-bar,
-[class*="SearchBar"],
-button[aria-label*="Search"],
-div[class*="search"] {
+/* If the above doesn't work, try hiding the first header element only */
+body>div>header:first-of-type {
   display: none !important;
 }
