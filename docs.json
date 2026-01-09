@@ -15,6 +15,11 @@
   },
   "css": "/custom.css",
   "api": {
+    "baseUrl": "https://api.holidayapi.dev",
+    "auth": {
+      "method": "key",
+      "name": "X-API-KEY"
+    },
     "playground": {
       "mode": "simple"
     }
