@@ -13,54 +13,53 @@
     "light": "#22C55E",
     "dark": "#15803D"
   },
-  "topbarLinks": [
-    {
-      "name": "Dashboard",
-      "url": "https://holidayapi.dev"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Get API Key",
-    "url": "https://holidayapi.dev/pricing"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "authentication",
+              "errors"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          }
+        ]
+      }
+    ],
+    "anchors": [
+      {
+        "anchor": "Pricing",
+        "href": "https://holidayapi.dev/pricing",
+        "icon": "credit-card"
+      },
+      {
+        "anchor": "Support",
+        "href": "mailto:support@holidayapi.dev",
+        "icon": "envelope"
+      }
+    ]
   },
-  "anchors": [
-    {
-      "name": "API Reference",
-      "icon": "code",
-      "url": "api-reference"
-    },
-    {
-      "name": "Pricing",
-      "icon": "credit-card",
-      "url": "https://holidayapi.dev/pricing"
-    },
-    {
-      "name": "Support",
-      "icon": "envelope",
-      "url": "mailto:support@holidayapi.dev"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "index",
-        "authentication",
-        "errors"
-      ]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    }
-  ],
   "openapi": [
     "/openapi.json"
   ],
-  "footerSocials": {
-    "github": "https://github.com/holidayapi",
-    "twitter": "https://twitter.com/holidayapi"
+  "footer": {
+    "socials": {
+      "github": "https://github.com/holidayapi",
+      "twitter": "https://twitter.com/holidayapi"
+    }
   }
 }
