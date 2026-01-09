@@ -11,11 +11,7 @@
   "colors": {
     "primary": "#16A34A",
     "light": "#22C55E",
-    "dark": "#15803D",
-    "background": {
-      "light": "#FFFFFF",
-      "dark": "#0F172A"
-    }
+    "dark": "#15803D"
   },
   "topbarLinks": [
     {
@@ -27,12 +23,6 @@
     "name": "Get API Key",
     "url": "https://holidayapi.dev/pricing"
   },
-  "tabs": [
-    {
-      "name": "API Documentation",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
       "name": "API Reference",
@@ -50,7 +40,6 @@
       "url": "mailto:support@holidayapi.dev"
     }
   ],
-  "openapi": "openapi.json",
   "navigation": [
     {
       "group": "Getting Started",
@@ -65,11 +54,10 @@
       "pages": [
         "api-reference/introduction"
       ]
-    },
-    {
-      "group": "Endpoints",
-      "openapi": "openapi.json"
     }
+  ],
+  "openapi": [
+    "/openapi.json"
   ],
   "footerSocials": {
     "github": "https://github.com/holidayapi",
