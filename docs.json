@@ -14,6 +14,11 @@
     "dark": "#15803D"
   },
   "css": "/custom.css",
+  "api": {
+    "playground": {
+      "mode": "simple"
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -36,6 +41,23 @@
             "group": "Overview",
             "pages": [
               "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              {
+                "openapi": "GET /api/countries"
+              },
+              {
+                "openapi": "GET /api/calendar/{countryCode}/{year}"
+              },
+              {
+                "openapi": "GET /api/check-date/{countryCode}/{date}"
+              },
+              {
+                "openapi": "POST /api/sync/{year}"
+              }
             ]
           }
         ]
