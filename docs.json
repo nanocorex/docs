@@ -8,6 +8,7 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
+  "openapi": "openapi.json",
   "navigation": {
     "tabs": [
       {
@@ -57,13 +58,8 @@
             ]
           },
           {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "group": "Endpoints",
+            "openapi": "openapi.json"
           }
         ]
       }
@@ -102,15 +98,15 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {

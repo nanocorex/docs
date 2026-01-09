@@ -1,0 +1,308 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Holiday API",
+        "description": "Ülkelere göre tatil ve çalışma günlerini döndüren API",
+        "contact": {
+            "name": "Holiday API",
+            "email": "info@holidayapi.com"
+        },
+        "version": "v1"
+    },
+    "paths": {
+        "/api/countries": {
+            "get": {
+                "tags": [
+                    "Holiday"
+                ],
+                "summary": "Tüm ülkelerin listesini getirir",
+                "responses": {
+                    "200": {
+                        "description": "Ülke listesi başarıyla döndürüldü"
+                    },
+                    "401": {
+                        "description": "API key geçersiz veya eksik",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Harici servis kullanılamıyor"
+                    }
+                }
+            }
+        },
+        "/api/calendar/{countryCode}/{year}": {
+            "get": {
+                "tags": [
+                    "Holiday"
+                ],
+                "summary": "Belirli bir ülke ve yıl için takvim bilgilerini getirir",
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "path",
+                        "description": "Ülke kodu (örn: TR, AE, SA, IL)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "year",
+                        "in": "path",
+                        "description": "Yıl (örn: 2025)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Takvim bilgileri başarıyla döndürüldü"
+                    },
+                    "400": {
+                        "description": "Geçersiz ülke kodu veya yıl",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "API key geçersiz veya eksik",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Harici servis kullanılamıyor"
+                    }
+                }
+            }
+        },
+        "/api/check-date/{countryCode}/{date}": {
+            "get": {
+                "tags": [
+                    "Holiday"
+                ],
+                "summary": "Belirli bir tarih için tatil kontrolü yapar",
+                "parameters": [
+                    {
+                        "name": "countryCode",
+                        "in": "path",
+                        "description": "Ülke kodu (örn: TR, AE, SA, IL)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "path",
+                        "description": "Kontrol edilecek tarih (YYYY-MM-DD formatında, örn: 2024-10-29)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tarih bilgisi başarıyla döndürüldü"
+                    },
+                    "400": {
+                        "description": "Geçersiz ülke kodu veya tarih formatı",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "API key geçersiz veya eksik",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Harici servis kullanılamıyor"
+                    }
+                }
+            }
+        },
+        "/api/sync/{year}": {
+            "post": {
+                "tags": [
+                    "Holiday"
+                ],
+                "summary": "Belirtilen yıl için tüm ülkelerin tatillerini Nager.Date + 11Holiday'den çekip veritabanına yazar",
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "path",
+                        "description": "Örneğin 2025",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Senkron başarıyla tamamlandı"
+                    },
+                    "401": {
+                        "description": "API key geçersiz veya eksik",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Harici servis kullanılamıyor"
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "tags": [
+                    "holiday-api"
+                ],
+                "operationId": "HealthCheck",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            }
+        },
+        "securitySchemes": {
+            "ApiKey": {
+                "type": "apiKey",
+                "description": "API Key kimlik doğrulaması için X-API-KEY header'ını kullanın",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "ApiKey": []
+        }
+    ]
+}
