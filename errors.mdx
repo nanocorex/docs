@@ -1,0 +1,33 @@
+---
+title: "Hata Kodları"
+description: "API yanıtlarında karşılaşabileceğiniz standart HTTP hata kodları."
+---
+
+Holiday API, işlemlerin sonucunu belirtmek için standart HTTP durum kodlarını kullanır.
+
+## Durum Kodları
+
+| Kod | Açıklama |
+| :--- | :--- |
+| `200` | **Başarılı:** İstek başarıyla işlendi. |
+| `400` | **Hatalı İstek:** Gönderilen parametreler eksik veya hatalı formatta (Örn: geçersiz tarih formatı, eksik ülke kodu). |
+| `401` | **Yetkisiz:** API anahtarı geçersiz, eksik veya kota aşımına uğramış. |
+| `403` | **Yasak:** İsteği yapmaya yetkiniz yok (Örn: erişim engeli). |
+| `404` | **Bulunamadı:** İstenilen kaynak (ülke, yıl vb.) mevcut değil. |
+| `429` | **Çok Fazla İstek:** Dakikalık veya günlük istek limitiniz aşıldı. Lütfen daha sonra tekrar deneyin. |
+| `500` | **Sunucu Hatası:** Sunucu tarafında beklenmedik bir hata oluştu. |
+| `503` | **Hizmet Kullanılamaz:** Harici veri sağlayıcılarına erişilemiyor veya bakım çalışması var. |
+
+## Hata Yanıt Formatı
+
+API hataları genellikle [Problem Details (RFC 7807)](https://tools.ietf.org/html/rfc7807) standardına uygun bir JSON objesi döner.
+
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "Geçersiz ülke kodu: 'XX'",
+  "instance": "/api/calendar/XX/2025"
+}
+```

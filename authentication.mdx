@@ -1,0 +1,35 @@
+---
+title: "Kimlik Doğrulama"
+description: "API Key kullanarak güvenli erişim sağlayın."
+---
+
+Holiday API'yı kullanmak için her istekte geçerli bir **API Anahtarı (API Key)** göndermeniz gerekmektedir. Bu anahtar, hesabınızın yetkilendirilmesini ve kullanım kotalarınızın takip edilmesini sağlar.
+
+## API Key Nasıl Alınır?
+
+1.  **Dashboard**'a giriş yapın.
+2.  **API Keys** menüsüne gidin.
+3.  **Yeni Oluştur** butonuna tıklayarak size özel anahtarınızı alın.
+
+<Warning>API anahtarınızı `sk_...` kimseyle paylaşmayın ve istemci taraflı (browser) kodlarda görünür şekilde saklamayın.</Warning>
+
+## Kullanım
+
+API anahtarınızı HTTP isteklerinizin `header` kısmında **`X-API-KEY`** parametresi olarak göndermelisiniz.
+
+```bash
+curl -X GET "https://api.holidayapi.com/v1/countries" \
+  -H "X-API-KEY: SIZIN_API_ANAHTARINIZ"
+```
+
+## Hatalı Kimlik Doğrulama
+
+Eğer API anahtarınız eksik, hatalı veya süresi dolmuşsa, API **401 Unauthorized** hatası dönecektir.
+
+```json
+{
+  "status": 401,
+  "title": "Unauthorized",
+  "detail": "API key geçersiz veya eksik."
+}
+```
