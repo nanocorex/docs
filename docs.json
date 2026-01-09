@@ -2,16 +2,58 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Holiday API",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg",
+    "href": "https://holidayapi.dev"
   },
   "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#22C55E",
+    "dark": "#15803D",
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#0F172A"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Dashboard",
+      "url": "https://holidayapi.dev"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get API Key",
+    "url": "https://holidayapi.dev/pricing"
+  },
+  "tabs": [
+    {
+      "name": "API Documentation",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "code",
+      "url": "api-reference"
+    },
+    {
+      "name": "Pricing",
+      "icon": "credit-card",
+      "url": "https://holidayapi.dev/pricing"
+    },
+    {
+      "name": "Support",
+      "icon": "envelope",
+      "url": "mailto:support@holidayapi.dev"
+    }
+  ],
   "openapi": "openapi.json",
   "navigation": [
     {
-      "group": "Introduction",
+      "group": "Getting Started",
       "pages": [
         "index",
         "authentication",
@@ -19,8 +61,18 @@
       ]
     },
     {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
       "group": "Endpoints",
       "openapi": "openapi.json"
     }
-  ]
+  ],
+  "footerSocials": {
+    "github": "https://github.com/holidayapi",
+    "twitter": "https://twitter.com/holidayapi"
+  }
 }
