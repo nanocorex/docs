@@ -1,35 +1,35 @@
 ---
-title: "Kimlik Doğrulama"
-description: "API Key kullanarak güvenli erişim sağlayın."
+title: "Authentication"
+description: "Secure access using API Key authentication."
 ---
 
-Holiday API'yı kullanmak için her istekte geçerli bir **API Anahtarı (API Key)** göndermeniz gerekmektedir. Bu anahtar, hesabınızın yetkilendirilmesini ve kullanım kotalarınızın takip edilmesini sağlar.
+To use the Holiday API, you must send a valid **API Key** with every request. This key enables your account authorization and usage quota tracking.
 
-## API Key Nasıl Alınır?
+## How to Get an API Key?
 
-1.  **Dashboard**'a giriş yapın.
-2.  **API Keys** menüsüne gidin.
-3.  **Yeni Oluştur** butonuna tıklayarak size özel anahtarınızı alın.
+1. Log in to the **Dashboard**.
+2. Navigate to the **API Keys** menu.
+3. Click the **Create New** button to generate your unique key.
 
-<Warning>API anahtarınızı `sk_...` kimseyle paylaşmayın ve istemci taraflı (browser) kodlarda görünür şekilde saklamayın.</Warning>
+<Warning>Never share your API key (`sk_...`) with anyone and do not expose it in client-side (browser) code.</Warning>
 
-## Kullanım
+## Usage
 
-API anahtarınızı HTTP isteklerinizin `header` kısmında **`X-API-KEY`** parametresi olarak göndermelisiniz.
+Send your API key in the HTTP request headers using the **`X-API-KEY`** parameter.
 
 ```bash
-curl -X GET "https://api.holidayapi.com/v1/countries" \
-  -H "X-API-KEY: SIZIN_API_ANAHTARINIZ"
+curl -X GET "https://api.holidayapi.dev/api/countries" \
+  -H "X-API-KEY: YOUR_API_KEY"
 ```
 
-## Hatalı Kimlik Doğrulama
+## Authentication Errors
 
-Eğer API anahtarınız eksik, hatalı veya süresi dolmuşsa, API **401 Unauthorized** hatası dönecektir.
+If your API key is missing, invalid, or expired, the API will return a **401 Unauthorized** error.
 
 ```json
 {
   "status": 401,
   "title": "Unauthorized",
-  "detail": "API key geçersiz veya eksik."
+  "detail": "API key is invalid or missing."
 }
 ```

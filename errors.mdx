@@ -1,33 +1,33 @@
 ---
-title: "Hata Kodları"
-description: "API yanıtlarında karşılaşabileceğiniz standart HTTP hata kodları."
+title: "Error Codes"
+description: "Standard HTTP error codes you may encounter in API responses."
 ---
 
-Holiday API, işlemlerin sonucunu belirtmek için standart HTTP durum kodlarını kullanır.
+Holiday API uses standard HTTP status codes to indicate the result of operations.
 
-## Durum Kodları
+## Status Codes
 
-| Kod | Açıklama |
+| Code | Description |
 | :--- | :--- |
-| `200` | **Başarılı:** İstek başarıyla işlendi. |
-| `400` | **Hatalı İstek:** Gönderilen parametreler eksik veya hatalı formatta (Örn: geçersiz tarih formatı, eksik ülke kodu). |
-| `401` | **Yetkisiz:** API anahtarı geçersiz, eksik veya kota aşımına uğramış. |
-| `403` | **Yasak:** İsteği yapmaya yetkiniz yok (Örn: erişim engeli). |
-| `404` | **Bulunamadı:** İstenilen kaynak (ülke, yıl vb.) mevcut değil. |
-| `429` | **Çok Fazla İstek:** Dakikalık veya günlük istek limitiniz aşıldı. Lütfen daha sonra tekrar deneyin. |
-| `500` | **Sunucu Hatası:** Sunucu tarafında beklenmedik bir hata oluştu. |
-| `503` | **Hizmet Kullanılamaz:** Harici veri sağlayıcılarına erişilemiyor veya bakım çalışması var. |
+| `200` | **Success:** Request was processed successfully. |
+| `400` | **Bad Request:** Parameters are missing or in invalid format (e.g., invalid date format, missing country code). |
+| `401` | **Unauthorized:** API key is invalid, missing, or quota exceeded. |
+| `403` | **Forbidden:** You don't have permission to make this request. |
+| `404` | **Not Found:** The requested resource (country, year, etc.) does not exist. |
+| `429` | **Too Many Requests:** Your per-minute or daily request limit has been exceeded. Please try again later. |
+| `500` | **Server Error:** An unexpected error occurred on the server. |
+| `503` | **Service Unavailable:** External data providers are unreachable or maintenance is in progress. |
 
-## Hata Yanıt Formatı
+## Error Response Format
 
-API hataları genellikle [Problem Details (RFC 7807)](https://tools.ietf.org/html/rfc7807) standardına uygun bir JSON objesi döner.
+API errors typically return a JSON object conforming to the [Problem Details (RFC 7807)](https://tools.ietf.org/html/rfc7807) standard.
 
 ```json
 {
   "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
   "title": "Bad Request",
   "status": 400,
-  "detail": "Geçersiz ülke kodu: 'XX'",
+  "detail": "Invalid country code: 'XX'",
   "instance": "/api/calendar/XX/2025"
 }
 ```
