@@ -1,0 +1,8 @@
+/* Hide search bar from Mintlify header */
+[data-testid="search-bar-entry-point"],
+.search-bar,
+[class*="SearchBar"],
+button[aria-label*="Search"],
+div[class*="search"] {
+  display: none !important;
+}
