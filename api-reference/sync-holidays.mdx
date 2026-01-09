@@ -1,0 +1,37 @@
+---
+title: "Sync Holidays"
+api: "POST /api/sync/{year}"
+description: "Synchronizes holiday data for a specific year (Admin only)"
+---
+
+Triggers synchronization of holiday data from external sources for the specified year. This endpoint is restricted to admin users.
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `year` | integer | Yes | Year to synchronize (e.g., 2025) |
+
+## Response
+
+Returns synchronization status.
+
+### Example Response
+
+```json
+{
+  "status": "success",
+  "message": "Holiday data synchronized for year 2025",
+  "countriesSynced": 100,
+  "totalHolidays": 1250
+}
+```
+
+<RequestExample>
+```bash cURL
+curl -X POST "https://api.holidayapi.dev/api/sync/2025" \
+  -H "X-API-KEY: your_admin_api_key"
+```
+</RequestExample>
+
+<Warning>This endpoint requires admin privileges and is rate-limited.</Warning>

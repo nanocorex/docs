@@ -1,0 +1,37 @@
+---
+title: "Get Countries"
+api: "GET /api/countries"
+description: "Retrieves the list of all supported countries"
+---
+
+Returns a list of all countries supported by Holiday API with their country codes.
+
+## Request
+
+No parameters required.
+
+## Response
+
+Returns an array of country objects, each containing:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `code` | string | ISO 3166-1 alpha-2 country code (e.g., "TR", "US") |
+| `name` | string | Full country name |
+
+### Example Response
+
+```json
+[
+  { "code": "TR", "name": "Turkey" },
+  { "code": "US", "name": "United States" },
+  { "code": "DE", "name": "Germany" }
+]
+```
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.holidayapi.dev/api/countries" \
+  -H "X-API-KEY: your_api_key"
+```
+</RequestExample>

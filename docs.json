@@ -19,63 +19,26 @@
       "mode": "simple"
     }
   },
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "index",
-              "authentication",
-              "errors"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Overview",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoints",
-            "pages": [
-              {
-                "openapi": "GET /api/countries"
-              },
-              {
-                "openapi": "GET /api/calendar/{countryCode}/{year}"
-              },
-              {
-                "openapi": "GET /api/check-date/{countryCode}/{date}"
-              },
-              {
-                "openapi": "POST /api/sync/{year}"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "anchors": [
-      {
-        "anchor": "Pricing",
-        "href": "https://holidayapi.dev/pricing",
-        "icon": "credit-card"
-      },
-      {
-        "anchor": "Support",
-        "href": "mailto:support@holidayapi.dev",
-        "icon": "envelope"
-      }
-    ]
-  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "index",
+        "authentication",
+        "errors"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/get-countries",
+        "api-reference/get-calendar",
+        "api-reference/check-date",
+        "api-reference/sync-holidays"
+      ]
+    }
+  ],
   "openapi": [
     "/openapi.json"
   ],

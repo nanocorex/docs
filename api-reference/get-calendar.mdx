@@ -1,0 +1,46 @@
+---
+title: "Get Calendar"
+api: "GET /api/calendar/{countryCode}/{year}"
+description: "Retrieves calendar information for a specific country and year"
+---
+
+Returns all holidays and calendar data for a specific country and year.
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `countryCode` | string | Yes | ISO 3166-1 alpha-2 country code (e.g., "TR", "US") |
+| `year` | integer | Yes | Year (e.g., 2025) |
+
+## Response
+
+Returns calendar data including all holidays for the specified country and year.
+
+### Example Response
+
+```json
+{
+  "country": "TR",
+  "year": 2025,
+  "holidays": [
+    {
+      "date": "2025-01-01",
+      "name": "New Year's Day",
+      "type": "public"
+    },
+    {
+      "date": "2025-04-23",
+      "name": "National Sovereignty and Children's Day",
+      "type": "public"
+    }
+  ]
+}
+```
+
+<RequestExample>
+```bash cURL
+curl -X GET "https://api.holidayapi.dev/api/calendar/TR/2025" \
+  -H "X-API-KEY: your_api_key"
+```
+</RequestExample>
